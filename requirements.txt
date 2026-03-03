@@ -1,0 +1,12 @@
+Packags:
+1) google-map-zone	 - used for integrating google maps in react CMD: npm install @react-google-maps/api
+
+
+website:
+https://console.cloud.google.com - used to create new api key for getting google map and coordinates based on pincode
+
+
+API:
+Maps JavaScript API	- used for integrate google map and polygon zone creation
+
+Geocoding API 		- used to convert pincode into coordinates
