@@ -5,23 +5,23 @@ A React-based interactive map demo for visualizing and managing delivery zones, 
 
 ## Preview
 
-### Zone View with Vendors
-![Zone view with colored vendors](screenshots/zone-view.png)
+### Drawing a New Zone
+![Drawing a zone](screenshots/01_drawing-zone.png)
 
 ### Filter Panel
-![Area filter panel](screenshots/filters.png)
-
-### Filter by Pincode
-![Filter by pincode](screenshots/filter-by-pincode.png)
+![Area filter panel](screenshots/02_filters.png)
 
 ### Filter by Zone
-![Filter by zone](screenshots/filter-by-zone.png)
+![Filter by zone](screenshots/03_filter-by-zone.png)
 
-### Vendor Info Popup
-![Vendor info popup](screenshots/vendor-info-popup.png)
+### All Zones with Vendors
+![All zones](screenshots/04_vendor-info-popup.png)
 
-### Drawing a New Zone
-![Drawing a zone](screenshots/drawing-zone.png)
+### Zone View with Vendors
+![Zone view with colored vendors](screenshots/05_cancel-filter-see-particular-zone.png)
+
+### Filter by Pincode
+![Filter by pincode](screenshots/06_filter-by-pincode.png)
 
 ## Features
 
