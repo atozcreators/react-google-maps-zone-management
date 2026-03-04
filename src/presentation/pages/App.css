@@ -1,42 +1,224 @@
+/* ── Layout ─────────────────────────────────────────────── */
 .App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.input-con {
-    display: flex;
-    align-items: center;
-    column-gap: 15px;
-    margin-bottom: 20px;
+h2{
+    color:#1a1a1a
 }
 
-.input-con input{
-    height: 32px;
-    width: 268px;
-    border-radius: 6px;
-    border: none;
-    outline: none;
-    background-color: #ffffffa1;
-    backdrop-filter: blur(30px);
-    color: #fff;
-    padding: 0 18px;
+/* ── Toolbar ────────────────────────────────────────────── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 96%;
+  margin-bottom: 12px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.input-con button{
-    border-radius: 50px;
-    width: 42px;
-    height: 42px;
-    background-color: #d71818;
-    color: #fff;
-    border: navajowhite;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 1;
 }
 
-.input-con button:hover{
-    background-color: #b50a0a;
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tag-zone {
+  background: #FFF;
+}
+
+.tag button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  font-size: 12px;
+  padding: 0;
+  line-height: 1;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.filter-btn:hover {
+  background: #f0f0f0;
+}
+
+/* ── Map Container ──────────────────────────────────────── */
+.map-container {
+  width: 96%;
+  height: 80vh;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ── Filter Overlay ─────────────────────────────────────── */
+.filter-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.filter-panel {
+  background: #fff;
+  border-radius: 14px;
+  width: 560px;
+  max-width: 95vw;
+  padding: 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+}
+
+.filter-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.filter-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #d71818;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  border-color: #d71818;
+}
+
+.filter-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-btn {
+  padding: 9px 24px;
+  background: #d71818;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.save-btn:hover {
+  background: #b50a0a;
+}
+
+/* ── Vendor Info Window ──────────────────────────────────── */
+.info-window {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #222;
+  min-width: 160px;
+}
+
+.info-window p {
+  margin: 0;
+}
+
+.vendor-label {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
 }

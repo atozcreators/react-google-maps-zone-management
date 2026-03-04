@@ -1,33 +1,135 @@
-React Google Maps Vendor Zone System
+# Google Map Zone — Delivery Zone Demo
 
-A zone management and vendor mapping system built using React and Google Maps API.
+A React-based interactive map demo for visualizing and managing delivery zones, sub-zones, and vendors using Google Maps.
 
-Features
-1. Draw custom polygon zones
-2. Create zones using pincode search (Geocoding API)
-3. Render multiple zones with distinct styling
-4. Vendor location markers
-5. Clickable vendor pins with detail cards
-6. Dynamic zone color separation
-7. State-managed zone rendering
 
-Technical Concepts
-1. Google Maps Drawing Manager
-2. Polygon coordinate extraction
-3. Geocoding API integration
-4. React state-based dynamic rendering
-5. Interactive map overlays
-6. Location-based UI design
+## Preview
 
-Tech Stack
-React
-@react-google-maps/api
-Google Maps Drawing API
-Google Geocoding API
+### Zone View with Vendors
+![Zone view with colored vendors](screenshots/zone-view.png)
 
-Screenshots
-(See my repo)
+### Filter Panel
+![Area filter panel](screenshots/filters.png)
 
-Setup
-npm install
+### Filter by Pincode
+![Filter by pincode](screenshots/filter-by-pincode.png)
+
+### Filter by Zone
+![Filter by zone](screenshots/filter-by-zone.png)
+
+### Vendor Info Popup
+![Vendor info popup](screenshots/vendor-info-popup.png)
+
+### Drawing a New Zone
+![Drawing a zone](screenshots/drawing-zone.png)
+
+## Features
+
+- **Pincode-level Zones** — Display polygon boundaries for delivery pincodes on the map
+- **Sub-zones** — View granular zones within a pincode (e.g. Zone 1000, 1001 inside pincode 641032)
+- **Area Filter Panel** — Filter visible zones by pincode and/or sub-zone
+- **Colored Vendor Markers** — Each vendor marker is colored to match its zone, with name labels
+- **Vendor Info Popup** — Click any marker to see vendor ID, name, type, phone, and address
+- **Drawing Tool** — Use the polygon drawing tool to sketch new delivery zones on the map
+- **Selected Zone Tags** — Active filters shown as removable tags in the toolbar
+
+---
+
+## 🛠️ Tech Stack
+
+- [React](https://reactjs.org/)
+- [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript)
+- [@react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api)
+
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/your-username/google-map-zone.git
+cd google-map-zone
+```
+
+### 2. Install dependencies
+
+```bash
+npm install / npm i
+```
+
+### 3. Set up your Google Maps API key
+
+Create a `.env` file in the root of the project:
+
+```env
+REACT_APP_GOOGLE_MAPS_KEY=your_google_maps_api_key_here
+```
+
+> Make sure your API key has **Maps JavaScript API** and **Geocoding API** enabled in Google Cloud Console. Never commit your `.env` file — it's already in `.gitignore`.
+
+### 4. Run the app
+
+```bash
 npm start
+```
+
+App will run at `http://localhost:3000`
+
+---
+
+## Data Structure
+
+All data lives in `src/data/data.js` and is hardcoded for demo purposes.
+
+### `zoneData`
+Pincode-level polygon boundaries.
+```js
+{
+  "641032": [{ lat, lng }, ...],
+  "641033": [{ lat, lng }, ...],
+}
+```
+
+### `pinZoneData`
+Sub-zones nested inside each pincode.
+```js
+{
+  "641032": {
+    "1000": [{ lat, lng }, ...],
+    "1001": [{ lat, lng }, ...],
+  }
+}
+```
+
+### `vendorData`
+Vendors grouped by pincode, each with an optional `zone_id` linking to a sub-zone.
+```js
+{
+  "641032": [
+    { zone_id: "1000", vendor_id: 122331, vendor_name: "Praveen", ... },
+  ]
+}
+```
+
+---
+
+## 🔑 Google Maps API Setup
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project
+3. Enable **Maps JavaScript API** and **Geocoding API**
+4. Create an API key and paste it in your `.env` file
+
+---
+
+## 📌 Notes
+
+- This is a **demo project** with hardcoded data — no backend or database
+- In the production version, data is fetched from APIs and managed via Redux
+- The drawing tool lets you sketch zones visually; saving is not wired in this demo you can save it you backend using coordinates data its very easy
+
+---
+
+## 📄 License
+
+MIT
