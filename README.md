@@ -1,3 +1,7 @@
+![React](https://img.shields.io/badge/React-18-blue)
+![Google Maps](https://img.shields.io/badge/Google%20Maps-API-green)
+![License](https://img.shields.io/badge/license-MIT-brightgreen)
+
 # Google Map Zone — Delivery Zone Demo
 
 A React-based interactive map demo for visualizing and managing delivery zones, sub-zones, and vendors using Google Maps.
@@ -47,7 +51,7 @@ A React-based interactive map demo for visualizing and managing delivery zones, 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/google-map-zone.git
+git clone https://github.com/atozcreators/google-maps-zone-manager.git
 cd google-map-zone
 ```
 
